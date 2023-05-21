@@ -35,12 +35,8 @@ class NetworkManager {
     
 //    func getImage(url: URL) async throws -> UIImage? {
 //        let (data, _) = try await session.data(from: url)
-//        do {
-//            return UIImage(data: data)
-//        } catch {
-//            return nil
-//        }
-//    }    
+//        return UIImage(data: data)
+//    }
 }
 
 

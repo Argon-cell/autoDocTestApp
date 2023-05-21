@@ -95,12 +95,37 @@ class NewsDeatilViewController: UIViewController {
         descriptionLabel.widthAnchor.constraint(equalToConstant: self.view.bounds.width - 20).isActive = true
         dateLabel.widthAnchor.constraint(equalToConstant: self.view.bounds.width - 20).isActive = true
         
-        dateLabel.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: 10).isActive = true
-        
         stackView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 10).isActive = true
         stackView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: -10).isActive = true
         stackView.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 0).isActive = true
         stackView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: 0).isActive = true
-         
+//
+//        titleLabel.topAnchor.constraint(equalTo: stackView.topAnchor).isActive = true
+//        titleLabel.leadingAnchor.constraint(equalTo: stackView.leadingAnchor).isActive = true
+//        titleLabel.rightAnchor.constraint(equalTo: stackView.rightAnchor).isActive = true
+////
+//        imageView.leftAnchor.constraint(equalTo: stackView.leadingAnchor).isActive = true
+//        imageView.rightAnchor.constraint(equalTo: stackView.rightAnchor).isActive = true
+//        imageView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor).isActive = true
+        
+//        descriptionLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 0).isActive = true
+//        descriptionLabel.leadingAnchor.constraint(equalTo: stackView.leadingAnchor).isActive = true
+//        descriptionLabel.rightAnchor.constraint(equalTo: stackView.rightAnchor).isActive = true
+//
+        dateLabel.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: 10).isActive = true
+//        dateLabel.leadingAnchor.constraint(equalTo: stackView.leadingAnchor).isActive = true
+//        dateLabel.rightAnchor.constraint(equalTo: stackView.rightAnchor).isActive = true
+//
     }
+//
+//    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+//        self.view.layoutIfNeeded()
+//    }
+    
+//    override func viewWillAppear(_ animated: Bool) {
+//        super.viewWillAppear(animated)
+//        self.view.frame = UIScreen.main.bounds
+//        self.view.layoutIfNeeded()
+//    }
+    
 }

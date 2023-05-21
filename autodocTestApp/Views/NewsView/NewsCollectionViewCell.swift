@@ -18,7 +18,6 @@ class NewsCollectionViewCell: UICollectionViewCell {
         return label
     }()
     
-
     let imageView: ScaledHeightImageView = {
         let imageView = ScaledHeightImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -47,6 +46,7 @@ class NewsCollectionViewCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    
     //MARK: - Functions
     
     func addViews(){
@@ -60,33 +60,15 @@ class NewsCollectionViewCell: UICollectionViewCell {
         
         imageView.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 10).isActive = true
         imageView.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -10).isActive = true
+        imageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10).isActive = true
         
         stackView.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 0).isActive = true
         stackView.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: 0).isActive = true
         stackView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 0).isActive = true
         stackView.bottomAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 10).isActive = true
-        
-
     }
+    
 }
 
 
-class ScaledHeightImageView: UIImageView {
 
-    override var intrinsicContentSize: CGSize {
-
-        if let myImage = self.image {
-            let myImageWidth = myImage.size.width
-            let myImageHeight = myImage.size.height
-            let myViewWidth = self.frame.size.width
- 
-            let ratio = myViewWidth/myImageWidth
-            let scaledHeight = myImageHeight * ratio
-
-            return CGSize(width: myViewWidth, height: scaledHeight)
-        }
-
-        return CGSize(width: -1.0, height: -1.0)
-    }
-
-}

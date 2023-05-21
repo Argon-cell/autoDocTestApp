@@ -17,15 +17,16 @@ class NewsCollectionViewController: UICollectionViewController {
     //MARK: - Inits
     init() {
         let itemSize = NSCollectionLayoutSize(
-            widthDimension: .fractionalWidth(1.0),
-            heightDimension: .fractionalHeight(1.0))
-
+            widthDimension: .fractionalWidth(UIDevice.current.userInterfaceIdiom == .pad ? 0.5 : 1.0),
+            heightDimension: .absolute(300))
+        
+        
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
         item.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 10, bottom: 10, trailing: 10)
-
+        
         let groupSize = NSCollectionLayoutSize(
             widthDimension: .fractionalWidth(1.0),
-            heightDimension: .fractionalHeight( UIDevice.current.userInterfaceIdiom == .phone ? 0.43 : 0.55))
+            heightDimension: .absolute(300))
 
         let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
 
@@ -40,6 +41,7 @@ class NewsCollectionViewController: UICollectionViewController {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
 
     //MARK: - Override
     override func viewDidLoad() {
@@ -59,10 +61,10 @@ class NewsCollectionViewController: UICollectionViewController {
         if let titleImageUrl = newsViewModel.news[indexPath.row].titleImageUrl {
             collectionViewCell.imageView.load(url: titleImageUrl)
 //            collectionViewCell.imageView.image = await newsViewModel.loadImage(url: titleImageUrl)
-        } else {
-            collectionViewCell.imageView.image = nil
         }
         
+        collectionViewCell.setNeedsLayout()
+        collectionViewCell.layoutIfNeeded()
         
         return collectionViewCell
     }
@@ -84,6 +86,18 @@ class NewsCollectionViewController: UICollectionViewController {
             cell?.transform = .identity
         }
     }
+    
+//    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+//        super.viewWillTransition(to: size, with: coordinator)
+//        coordinator.animate(alongsideTransition: { context in
+//            self.collectionView.collectionViewLayout.invalidateLayout()
+//        }, completion: nil)
+//    }
+    
+//    override func willanima
+    
+    
+    
     
     //MARK: - Functions
     private func linkPublishers() {
